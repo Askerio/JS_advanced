@@ -1,0 +1,65 @@
+body{
+	background-image: url("Pivnyie-festivali-CHehii.jpg"); 
+}
+
+input {
+	text-decoration:none;
+	display:inline-block;
+}
+
+input :hover{
+	color:orange;	/* колір при наведенні на об'єкт*/	
+}
+
+.inline-blockElement{
+	display: inline-block;
+}
+
+.RightPart {
+	background-color:  white;
+	position: fixed;
+	right: 0px;
+	top: 93px;
+	margin: 10px;
+	padding: 5px;
+}
+
+#CenterMessage {
+	position: absolute;    
+    top: 35%;
+    width: 60%;
+  	text-align: center;
+    font-size: 32px !important;
+    color: blue;
+}
+
+.textStyle {
+	text-align: center;
+	font-size: 18px;
+}
+
+.errorMessage{
+	font-size: 14px;
+	color: red;
+}
+
+.errorField{
+	border : 2px solid  red;
+}
+
+.show{
+    opacity: 1!important;
+}
+
+header{
+    background-color: orange; 
+}
+
+.tab-content{
+	background-color: #ffad33;
+	display: inline-block;	
+}
+
+.formBlocks{
+	margin: 10px;
+}
