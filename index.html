@@ -4,22 +4,28 @@
 		<title>Партія Любителів ПИВА</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Партія Любителів ПИВА, Party of Beer Lovers">		<!--короткий опис сторінки-->
 		<link type="text/css" rel="stylesheet" href="normalize.css"/>		<!--Забезпечення правильної візуалізації та підтримки масштабованості-->
 		<link rel="stylesheet" href="bootstrap.min.css">
 		<link href="stylesheet.css" rel="stylesheet" type="text/css">
+		<link rel="icon" type="image/x-icon" href="beer.ico" />			<!--Іконка сайту сайту-->
 		<script type="text/javascript"rel="javascript" src="script.js"></script>	
 	</head>
 
-	<body >
-		<header>
-			<div id="LeftHeader" class="container "></div>
-			<div id="RightHeader" class="container ">
-				<h2>Секція користувача</h2>
-				<ul class="nav nav-pills">
-				<li class="active" onclick= "checkingClass('newUser', this)"><a data-toggle="pill" href="#newUser">Новий користувач</a></li>
-				<li class="" onclick= "checkingClass('AuthorizedUser', this)"><a data-toggle="pill" href="#AuthorizedUser">Авторизований користувач</a></li> 
-				</ul>				
-			</div>			
+	<body>
+		<header class="navbar navbar-inverse  navbar-fixed-top">
+			 <div class="container-fluid inline-blockElement">
+				<div id="LeftHeader" class="container navbar-header inline-blockElement">
+					
+				</div>
+
+				<div id="RightHeader" class="container inline-blockElement nav navbar-nav  navbar-right">
+					<h3>Секція користувача</h3>
+					<ul class="nav nav-pills">
+						<li class="active" onclick= "checkingClass('newUser', this)"><a data-toggle="pill" href="#newUser">Новий користувач</a></li>
+						<li class="" onclick= "checkingClass('AuthorizedUser', this)"><a data-toggle="pill" href="#AuthorizedUser">Авторизований користувач</a></li> 
+					</ul>				
+				</div>			
 		</header>
 
 	<div id="MainPart" class="inline-blockElement">
@@ -33,53 +39,73 @@
 
 	<div class="tab-content RightPart">
 		<form id="newUser" class="tab-pane fade show">
-			<p> Особиста інформація </p>
+			<center>
+				<p> Особиста інформація </p>
+			</center>
+
 			<div class="formBlocks">
-			Ваше ім'я: <br><input id="name" type="text" name="username" placeholder="Введіть Ваше ім'я" maxlength="30" required>
-			<div id="errorName" class="errorMessage"></div> 
+				Ваше ім'я: <br><input id="name" type="text" name="username" placeholder="Введіть Ваше ім'я" data-pattern="[A-Za-zА-Яа-я]" maxlength="30" required>
+				<div id="errorName" class="errorMessage"></div> 
 			</div>
 
 			<div class="formBlocks">
-			Ваш пароль: <br><input id="pasword" type="pasword" name="userpasword" placeholder="Ваш пароль" data-pattern="[A-Za-z]" required>
-			<div id="errorPasword" class="errorMessage"></div>
+				Ваш пароль: <br><input id="pasword" type="pasword" name="userpasword" placeholder="Ваш пароль" required>
+				<div id="errorPasword" class="errorMessage"></div>
 			</div>
 			
 			<div class="formBlocks">
-			Ваш вік:<br>
-			<input id="age" type="text" min="3" max="125" name="userage" placeholder="Ваш вік" data-pattern="[0-9]" required>
-			<div id="errorAge" class="errorMessage"></div>
+				Ваш вік:<br>
+				<input id="age" type="text" name="userage" placeholder="Ваш вік" data-pattern="[0-9]" required>
+				<div id="errorAge" class="errorMessage"></div>
 			</div>
 
 			<div class="formBlocks">
-			Ваша електронна адреса:</br>
-			<input id="email" type="email" name="useremail" placeholder="Ваша електронна адреса" data-pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
-			<div id="errorEmail" class="errorMessage" ></div>
+				Ваша електронна адреса:</br>
+				<input id="email" type="email" name="useremail" placeholder="Ваша електронна адреса" data-pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" required>
+				<div id="errorEmail" class="errorMessage" ></div>
 			</div>
 
 			<div class="formBlocks">
-			Ваш номер телефону:</br>
-			<input id="phone" type="phone" name="userphone" placeholder="Ваш номер телефону" data-pattern="\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}" required>
-			<div id="errorPhone" class="errorMessage" ></div>
+				Ваш номер телефону:</br>
+				<input id="phone" type="phone" name="userphone" placeholder="Ваш номер телефону" data-pattern="\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}" required>
+				<div id="errorPhone" class="errorMessage" ></div>
 			</div>
-			
-			<input type="button" value="Подати" onclick="submitPersonalInformation()">
-			<input type="reset" value="Ввести знову">
+
+			<div class="formBlocks">
+				Вашa cтать:<br>
+				<input id="man" type="radio" name="usersex" placeholder="Вашa cтать" class="" required>Чоловік</input> <br>
+				<input id="woman" type="radio" name="usersex" placeholder="Вашa cтать" class="" required>Жінка</input>				
+			</div>
+
+			<div class="formBlocks">
+				<input type="button" value="Подати" onclick="submitInformation('newUser')">
+				<input type="reset" value="Ввести знову">
+			</div>
 		</form>
 
-	<form id="AuthorizedUser" class="tab-pane fade "> 
-		<div class="formBlocks">
-			Ваше ім'я: <br><input id="name" type="text" name="username" placeholder="Введіть Ваше ім'я" maxlength="30" required>
-			<div id="errorNameAuthorizedUser" class="errorMessage"></div> <br>
-		</div>
+		<form id="AuthorizedUser" class="tab-pane fade "> 
+			<div class="formBlocks">
+				Ваше ім'я: <br><input id="AuthorizedUsername" type="text" name="AuthorizedUserusername" placeholder="Введіть Ваше ім'я" maxlength="30" data-pattern="[A-Za-zА-Яа-я]"required>
+				<div id="errorNameAuthorizedUser" class="errorMessage"></div>
+			</div>
 
-		<div class="formBlocks">
-			Ваш пароль: <br><input id="pasword" type="pasword" name="userpasword" placeholder="Ваш пароль" data-pattern="[A-Za-z]" required>
-			<div id="errorPaswordAuthorizedUser"></div><br> 
-			<input type="button" value="Подати" onclick="submitAuthorizedUser()">
-			<input type="reset" value="Ввести знову">
-		</div>
-	</form>
+			<div class="formBlocks">
+				Ваш пароль: <br><input id="AuthorizedUserpasword" type="pasword" name="AuthorizedUserpasword" placeholder="Ваш пароль"  required>
+				<div id="errorPaswordAuthorizedUser" class="errorMessage"></div>
+			</div>	 
+
+			<div class="formBlocks">
+				<input type="button" value="Подати" onclick="submitInformation('AuthorizedUser')">
+				<input type="reset" value="Ввести знову">
+			</div>
+		</form>
 	</div>
-				
+
+	<footer>		<!--Підвал  / Додаткрва інформація-->
+			<div>
+				<p>&copy; 2016</p>		<!--Текст-->
+			</div>
+	</footer>
+
 	</body>
 </html>
